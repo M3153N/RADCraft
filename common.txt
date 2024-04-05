@@ -7,8 +7,8 @@ rlwrap
 arjun
 smbmap
 ftp
-ncurseshexedit
-jdgui
+ncurses-hexedit
+jd-gui
 jq
 proxychains
 exploitdb
@@ -26,7 +26,7 @@ wifite
 bat
 cewl
 responder
-hashidentifier
+hash-identifier
 netexec
 wordlists
 seclists
@@ -34,8 +34,8 @@ metasploit-framework
 burpsuite
 hashcat
 docker.io
-impacketscripts
-python3certipy
+impacket-scripts
+python3-certipy
 aptitude
 php
 macchanger
