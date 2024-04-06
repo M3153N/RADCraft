@@ -6,7 +6,7 @@ import sys
 from urllib.request import urlopen
 
 def get_programs_list(repo, filename):
-    url = f"https://raw.githubusercontent.com/{repo}/main/{filename}"
+    url = f"https://raw.githubusercontent.com/{repo}/main/Lists/{filename}"
     try:
         with urlopen(url) as response:
             content = response.read().decode('utf-8').strip()
