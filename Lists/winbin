@@ -1,9 +1,8 @@
-mkdir $HOME/winbin
-cd $HOME/winbin
+mkdir $HOME/winbin && cd $HOME/winbin
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
 wget https://github.com/carlospolop/PEASS-ng/releases/download/20230917-ec588706/winPEASx64.exe
 wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
 wget https://github.com/int0x33/nc.exe/blob/master/nc64.exe
 wget https://github.com/flozz/p0wny-shell/blob/master/shell.php
 wget https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip
-wget https://raw.githubusercontent.com/drygdryg/OneShot/master/oneshot.py
+wget https://github.com/kimocoder/OneShot/blob/master/oneshot.py
