@@ -42,7 +42,37 @@ def remove(programs):
         else:
             not_uninstalled.append(program)
         clear_screen()
+
+    # Run 'apt autoremove' after removing programs
+    print("Realizando autoremove...")
+    subprocess.run(['sudo', 'DEBIAN_FRONTEND=noninteractive', 'apt', 'autoremove', '-y'], capture_output=True)
+
     return uninstalled, not_uninstalled
+
+def get_commands_list(repo, filename):
+    url = f"https://raw.githubusercontent.com/{repo}/main/Commands/{filename}"
+    try:
+        with urlopen(url) as response:
+            content = response.read().decode('utf-8').strip()
+            commands = [line.strip() for line in content.split('\n')]
+            return commands
+    except Exception as e:
+        print(f"No se pudo obtener la lista de comandos desde {url}: {e}")
+        return []
+
+def execute_commands(commands):
+    executed = []
+    not_executed = []
+    total_commands = len(commands)
+    for i, command in enumerate(commands, start=1):
+        print(f"Ejecutando comando ({i}/{total_commands}): {command}")
+        result = subprocess.run(command, shell=True, capture_output=True)
+        if result.returncode == 0:
+            executed.append(command)
+        else:
+            not_executed.append(command)
+        clear_screen()
+    return executed, not_executed
 
 def clear_screen():
     os.system('clear' if os.name == 'posix' else 'cls')
@@ -51,16 +81,16 @@ def main():
     repo = 'ManuMeisen/Meisen'  # Reemplaza con tu usuario y nombre del repositorio
 
     if len(sys.argv) < 3:
-        print("Uso: python programa.py <install/remove> <lista1> <lista2> ...")
+        print("Uso: python programa.py <install/remove/execute> <lista1> <lista2> ...")
         return
 
     action = sys.argv[1]
-    lists_to_install = sys.argv[2:]
+    lists_to_process = sys.argv[2:]
 
     if action == 'install':
         installed = []
         not_installed = []
-        for lista in lists_to_install:
+        for lista in lists_to_process:
             programs = get_programs_list(repo, lista)
             if programs:
                 installed_list, not_installed_list = install(programs)
@@ -75,11 +105,11 @@ def main():
         print("Programas no instalados:")
         for program in not_installed:
             print("-", program)
-        
+
     elif action == 'remove':
         uninstalled = []
         not_uninstalled = []
-        for lista in lists_to_install:
+        for lista in lists_to_process:
             programs = get_programs_list(repo, lista)
             if programs:
                 uninstalled_list, not_uninstalled_list = remove(programs)
@@ -94,8 +124,28 @@ def main():
         print("Programas no desinstalados:")
         for program in not_uninstalled:
             print("-", program)
+
+    elif action == 'execute':
+        executed = []
+        not_executed = []
+        for lista in lists_to_process:
+            commands = get_commands_list(repo, lista)
+            if commands:
+                executed_list, not_executed_list = execute_commands(commands)
+                executed.extend(executed_list)
+                not_executed.extend(not_executed_list)
+            else:
+                print(f"No se encontró la lista '{lista}' en el repositorio.")
+        
+        print("Comandos ejecutados correctamente:")
+        for command in executed:
+            print("-", command)
+        print("Comandos no ejecutados:")
+        for command in not_executed:
+            print("-", command)
+
     else:
-        print("Acción no reconocida. Use 'install' o 'remove'.")
+        print("Acción no reconocida. Use 'install', 'remove' o 'execute'.")
 
 if __name__ == "__main__":
     main()
