@@ -50,7 +50,7 @@ def remove(programs):
     return uninstalled, not_uninstalled
 
 def get_commands_list(repo, filename):
-    url = f"https://raw.githubusercontent.com/{repo}/main/Commands/{filename}"
+    url = f"https://raw.githubusercontent.com/{repo}/main/Lists/{filename}"
     try:
         with urlopen(url) as response:
             content = response.read().decode('utf-8').strip()
