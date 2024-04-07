@@ -1,5 +1,6 @@
 smbclient
 crackmapexec
+python3-pip
 wpscan
 evil-winrm
 chisel
