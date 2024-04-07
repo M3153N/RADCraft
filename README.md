@@ -23,20 +23,17 @@ sudo meisen install <listname1> <listname2>
 ```
 example: **sudo meisen install common kali**
 
-
-
-
+  
 **Uninstall Lists** (you can select multiple lists but *ONLY* **APT** ones)
 ```
 sudo meisen remove <listname1> <listname2>
 ```
 example: **sudo meisen remove home kali**
 
-
-
+  
 **Execute Lists** (you can select multiple lists, but *NEVER* **APT** ones)
 ```
-sudo meisen exec <listname1> <listname2>
+sudo meisen execute <listname1> <listname2>
 ```
 example: **sudo meisen execute parrot extras**
 
