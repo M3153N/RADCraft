@@ -1,4 +1,4 @@
-mkdir $HOME/winbin && cd $HOME/winbin
+mkdir -p $HOME/winbin && cd $HOME/winbin
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
 wget https://github.com/carlospolop/PEASS-ng/releases/download/20230917-ec588706/winPEASx64.exe
 wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
