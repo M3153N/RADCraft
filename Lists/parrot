@@ -2,3 +2,4 @@ curl https://i.jpillora.com/chisel! | bash
 sudo gem install wpscan
 echo "alias evil-winrm='docker run --rm -ti --name evil-winrm -v $HOME:/data oscarakaelvis/evil-winrm'" >> /home/user/.bashrc
 echo "alias rustscan='docker run --rm -ti --name rustscan rustscan/rustscan:2.1.1'" >> /home/user/.bashrc
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/parrotconf.tar.gz && tar -xzkvf parrotconf.tar.gz -C /home/user/.config && rm -f parrotconf.tar.gz
