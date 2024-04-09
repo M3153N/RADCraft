@@ -1,0 +1,1 @@
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/kaliconf.tar.gz && tar -xzkvf kaliconf.tar.gz -C /home/user/.config && rm -f kaliconf.tar.gz
