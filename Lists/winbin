@@ -6,3 +6,4 @@ wget -P $HOME/winbin https://github.com/int0x33/nc.exe/raw/master/nc64.exe
 wget -P $HOME/winbin https://github.com/flozz/p0wny-shell/raw/master/shell.php
 wget -P $HOME/winbin https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip
 wget -P $HOME/winbin https://github.com/kimocoder/OneShot/raw/master/oneshot.py
+wget -P $HOME/winbin http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
