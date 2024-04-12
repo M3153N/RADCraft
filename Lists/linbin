@@ -8,3 +8,4 @@ wget -P $HOME/linbin https://github.com/andrew-d/static-binaries/blob/master/bin
 wget -P $HOME/linbin https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/nmap
 wget -P $HOME/linbin https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/nano
 wget -P $HOME/linbin https://github.com/flozz/p0wny-shell/blob/master/shell.php
+wget -P $HOME/winbin http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
