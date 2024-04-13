@@ -8,4 +8,4 @@ wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/n
 wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/nmap
 wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/pspy
 wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/revshell.php
-wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/webshell.php && chmod +x *
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/webshell.php
