@@ -1,7 +1,7 @@
 mkdir -p $HOME/linbin
 wget -P $HOME/linbin https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_amd64.gz
 wget -P $HOME/linbin https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64s
-wget -P $HOME/linbin https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O les.sh
+wget -P $HOME/linbin https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh
 wget -P $HOME/linbin https://github.com/carlospolop/PEASS-ng/releases/download/20230917-ec588706/linpeas_linux_amd64
 wget -P $HOME/linbin https://raw.githubusercontent.com/sleventyeleven/linuxprivchecker/master/linuxprivchecker.py
 wget -P $HOME/linbin https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat
