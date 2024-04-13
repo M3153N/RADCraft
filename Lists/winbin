@@ -1,9 +1,6 @@
 mkdir -p $HOME/winbin
-wget -P $HOME/winbin https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
-wget -P $HOME/winbin https://github.com/carlospolop/PEASS-ng/releases/download/20230917-ec588706/winPEASx64.exe
-wget -P $HOME/winbin https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
-wget -P $HOME/winbin https://github.com/int0x33/nc.exe/raw/master/nc64.exe
-wget -P $HOME/winbin https://github.com/flozz/p0wny-shell/raw/master/shell.php
-wget -P $HOME/winbin https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip
-wget -P $HOME/winbin https://github.com/kimocoder/OneShot/raw/master/oneshot.py
-wget -P $HOME/winbin http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/oneshot
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/nc.exe
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/winpeas.exe
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/chisel.exe
+wget -P $HOME/linbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/runas.exe
