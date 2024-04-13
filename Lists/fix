@@ -1,0 +1,1 @@
+wget http://ftp.us.debian.org/debian/pool/main/z/zlib/libminizip1t64_1.3.dfsg-3.1_amd64.deb && sudo dpkg -i libminizip1t64_1.3.dfsg-3.1_amd64.deb && sudo apt-get -f install && rm -f libminizip1t64_1.3.dfsg-3.1_amd64.deb
