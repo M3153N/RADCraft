@@ -38,6 +38,11 @@ python3-certipy
 aptitude
 php
 macchanger
+cl-postgres
+whatweb
+tftp
+exiftool
+tcpdump
 bloodhound
 neofetch
 lightdm-remote-session-freerdp2
