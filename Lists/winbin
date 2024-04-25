@@ -1,6 +1,0 @@
-mkdir -p $HOME/winbin
-wget -P $HOME/winbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/oneshot
-wget -P $HOME/winbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/nc.exe
-wget -P $HOME/winbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/winpeas.exe
-wget -P $HOME/winbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/chisel.exe
-wget -P $HOME/winbin https://raw.githubusercontent.com/ManuMeisen/scripts/main/runas.exe
