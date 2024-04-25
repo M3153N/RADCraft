@@ -1,1 +1,0 @@
-wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/parrotconf.tar.gz && tar -xzkvf parrotconf.tar.gz -C /home/user/.config && rm -f parrotconf.tar.gz
