@@ -1,0 +1,6 @@
+gzip -d /usr/share/wordlists/rockyou.txt.gz
+wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64  && chmod +x kerbrute_linux_amd64 && sudo mv kerbrute_linux_amd64 /bin/kerbrute
+git clone https://github.com/4ndr34z/shells && cd shells && ./install.sh && cd .. && rm -rf shells
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/hosts && chmod +x hosts && sudo mv hosts /bin/hosts
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/nmscan && chmod +x nmscan && sudo mv nmscan /bin/nmscan
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/kaliconf.tar.gz && tar -xzkvf kaliconf.tar.gz -C /home/user/.config && rm -f kaliconf.tar.gz
