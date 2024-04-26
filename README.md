@@ -72,7 +72,7 @@ For **PARROT OS:**
 sudo meisen remove home && sudo meisen install parrot && sudo meisen execute parrotext
 ```
 
-![[kali 1.png]]
+![Kali](https://raw.githubusercontent.com/ManuMeisen/scripts/main/kali.png)
 For **KALI LINUX:**
 
 ***kali:*** Important hacking software installed through APT.
