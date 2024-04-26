@@ -59,9 +59,12 @@ example: **sudo meisen execute parrot extras**
 
 ### **Lists in this Repo**
 
-For **PARROT OS**  
+For **PARROT OS:**  
+
 ***home:*** Basic software that comes in the *home* edition of Parrot OS. (I usually remove this one to unbloat my VM)
-***parrot:*** Important hacking software that cannot be installed through APT.
+
+***parrot:*** Important hacking software installed through APT.
+
 ***parrotext:*** Some extra software for pentesting, not available to install through APT, plus some configs.
 
 *Example*: 
@@ -69,9 +72,10 @@ For **PARROT OS**
 sudo meisen remove home && sudo meisen install parrot && sudo meisen execute parrotext
 ```
 
+
 For **KALI LINUX:**
 
-***kali:*** The equivalent of the *parrot* list but installable through APT.  
+***kali:*** Important hacking software installed through APT.
 
 ***kaliext:*** Some extra software for pentesting, not available to install through APT, plus some configs.
 
@@ -80,7 +84,9 @@ For **KALI LINUX:**
 sudo meisen install kali && sudo meisen execute kaliext
 ```
 
-**OTHER**
+
+**OTHER**:
+
 ***binaries:*** Standalone binaries for Windows and Linux, plus some Shell scripts. *TIP*: dont use sudo when selecting this list.
 
 *Example*: 
