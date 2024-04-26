@@ -58,7 +58,8 @@ example: **sudo meisen execute parrot extras**
 -----------------------------------------------------------------------
 
 ### **Lists in this Repo**
-![[parrot 1.png]]
+![Kali](https://raw.githubusercontent.com/ManuMeisen/scripts/main/parrot.png)
+
 For **PARROT OS:**  
 
 ***home:*** Basic software that comes in the *home* edition of Parrot OS. (I usually remove this one to unbloat my VM)
@@ -73,6 +74,7 @@ sudo meisen remove home && sudo meisen install parrot && sudo meisen execute par
 ```
 
 ![Kali](https://raw.githubusercontent.com/ManuMeisen/scripts/main/kali.png)
+
 For **KALI LINUX:**
 
 ***kali:*** Important hacking software installed through APT.
