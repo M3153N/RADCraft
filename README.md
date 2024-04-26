@@ -69,8 +69,10 @@ For **PARROT OS**
 sudo meisen remove home && sudo meisen install parrot && sudo meisen execute parrotext
 ```
 
-For **KALI LINUX**
-***kali:*** The equivalent of the *parrot* list but installable through APT.
+For **KALI LINUX:**
+
+***kali:*** The equivalent of the *parrot* list but installable through APT.  
+
 ***kaliext:*** Some extra software for pentesting, not available to install through APT, plus some configs.
 
 *Example*: 
