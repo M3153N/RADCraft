@@ -8,4 +8,3 @@ wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_
 git clone https://github.com/4ndr34z/shells && cd shells && ./install.sh && cd .. && rm -rf shells
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/hosts && chmod +x hosts && sudo mv hosts /bin/hosts
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/nmscan && chmod +x nmscan && sudo mv nmscan /bin/nmscan
-wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/parrotconf.tar.gz && tar -xzvf parrotconf.tar.gz -C $HOME/.config --overwrite && rm -f parrotconf.tar.gz
