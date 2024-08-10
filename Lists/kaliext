@@ -5,3 +5,4 @@ wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/netscan && chmod 
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/portscan && chmod +x portscan && sudo mv portscan /bin/portscan
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/ncx && chmod +x ncx && sudo mv ncx /bin/ncx
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/httpx && chmod +x httpx && sudo mv httpx /bin/httpx
+wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/ncshell && chmod +x ncshell && sudo mv ncshell /bin/ncshell
