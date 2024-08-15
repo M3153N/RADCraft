@@ -3,7 +3,6 @@ wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_
 git clone https://github.com/4ndr34z/shells && cd shells && ./install.sh && cd .. && rm -rf shells
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/netscan && chmod +x netscan && sudo mv netscan /bin/netscan
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/portscan && chmod +x portscan && sudo mv portscan /bin/portscan
-wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/ncx && chmod +x ncx && sudo mv ncx /bin/ncx
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/httpx && chmod +x httpx && sudo mv httpx /bin/httpx
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/ncshell && chmod +x ncshell && sudo mv ncshell /bin/ncshell
 wget https://github.com/RustScan/RustScan/releases/download/2.3.0/rustscan_2.3.0_amd64.deb && sudo dpkg -i rustscan_2.3.0_amd64.deb && sudo rm -rf rustscan_2.3.0_amd64.deb
