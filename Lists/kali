@@ -3,7 +3,6 @@ hcxtools
 bully
 pipx
 rlwrap
-arjun
 smbmap
 ftp
 ncurses-hexedit
@@ -11,9 +10,7 @@ jd-gui
 jq
 proxychains
 exploitdb
-dirsearch
 ffuf
-gobuster
 nmap
 wireshark
 nikto
@@ -36,10 +33,9 @@ whatweb
 exiftool
 tcpdump
 bloodhound
-neofetch
 lightdm-remote-session-freerdp2
 smbclient
-crackmapexec
+netexec
 python3-pip
 wpscan
 evil-winrm
