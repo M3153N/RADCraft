@@ -4,4 +4,3 @@ wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/portscan && chmod
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/httpx && chmod +x httpx && sudo mv httpx /bin/httpx
 wget https://raw.githubusercontent.com/ManuMeisen/scripts/main/ncshell && chmod +x ncshell && sudo mv ncshell /bin/ncshell
 wget https://github.com/RustScan/RustScan/releases/download/2.3.0/rustscan_2.3.0_amd64.deb && sudo dpkg -i rustscan_2.3.0_amd64.deb && sudo rm -rf rustscan_2.3.0_amd64.deb
-gzip -d /usr/share/wordlists/rockyou.txt.gz
