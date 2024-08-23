@@ -14,6 +14,7 @@ proxychains
 exploitdb
 ffuf
 nikto
+enum4linux
 sqlmap
 responder
 wordlists
@@ -21,6 +22,7 @@ seclists
 metasploit-framework
 burpsuite
 hashcat
+john
 impacket-scripts
 certipy-ad
 php
