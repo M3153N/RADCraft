@@ -31,8 +31,9 @@ tcpdump
 bloodhound
 lightdm-remote-session-freerdp2
 smbclient
-netexec
 wpscan
 evil-winrm
 chisel
 bloodhound.py
+netexec
+xclip
