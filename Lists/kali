@@ -33,7 +33,8 @@ lightdm-remote-session-freerdp2
 smbclient
 wpscan
 evil-winrm
-chisel
+ligolo-ng
 bloodhound.py
 netexec
 xclip
+htop
