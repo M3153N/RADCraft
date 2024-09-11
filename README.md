@@ -44,7 +44,6 @@ example: **sudo meisen install common kali**
 ```
 sudo meisen remove <listname1> <listname2>
 ```
-example: **sudo meisen remove home kali**
 
 
 
@@ -52,49 +51,29 @@ example: **sudo meisen remove home kali**
 ```
 sudo meisen execute <listname1> <listname2>
 ```
-example: **sudo meisen execute parrot extras**
 
 
 -----------------------------------------------------------------------
 
 ### **Lists in this Repo**
-![Kali](https://raw.githubusercontent.com/ManuMeisen/scripts/main/parrot.png)
-
-For **PARROT OS:**  
-
-***home:*** Basic software that comes in the *home* edition of Parrot OS. (I usually remove this one to unbloat my VM)
-
-***parrot:*** Important hacking software installed through APT.
-
-***parrotext:*** Some extra software for pentesting, not available to install through APT, plus some configs.
-
-*Example*: 
-```
-sudo meisen remove home && sudo meisen install parrot && sudo meisen execute parrotext
-```
-
 ![Kali](https://raw.githubusercontent.com/ManuMeisen/scripts/main/kali.png)
 
-For **KALI LINUX:**
+For **KALI:**
 
-***kali:*** Important hacking software installed through APT.
+***basic:*** Important hacking software installed through APT.
 
-***kaliext:*** Some extra software for pentesting, not available to install through APT, plus some configs.
+***extras:*** Some extra software for pentesting, not available to install through APT.
 
-*Example*: 
-```
-sudo meisen install kali && sudo meisen execute kaliext
-```
-
-
-**OTHER**:
+***others:*** Less important hacking software installed through APT.
 
 ***binaries:*** Standalone binaries for Windows and Linux, plus some Shell scripts. *TIP*: dont use sudo when selecting this list.
 
 *Example*: 
 ```
-meisen execute binaries
+sudo meisen install basic && sudo meisen execute extras
 ```
 
-
+```
+meisen execute bins
+```
 ------------------------------------------------------------------
