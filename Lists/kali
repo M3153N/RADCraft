@@ -38,3 +38,5 @@ bloodhound.py
 netexec
 xclip
 htop
+nfs-common
+dnsenum
