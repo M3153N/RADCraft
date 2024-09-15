@@ -1,5 +1,6 @@
 wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64  && chmod +x kerbrute_linux_amd64 && sudo mv kerbrute_linux_amd64 /bin/kerbrute
 wget https://github.com/RustScan/RustScan/releases/download/2.3.0/rustscan_2.3.0_amd64.deb && sudo dpkg -i rustscan_2.3.0_amd64.deb && sudo rm -rf rustscan_2.3.0_amd64.deb
 pipx install xsstrike && pipx ensurepath
-go install github.com/tomnomnom/waybackurls@latest && sudo mv /go/bin/waybackurls /bin/waybackurls && rm -rf go
-git clone https://github.com/devanshbatham/paramspider && pip install /paramspider/. && rm -rf paramspider
+go install github.com/tomnomnom/waybackurls@latest && sudo mv $HOME/go/bin/waybackurls /bin/waybackurls && sudo rm -rf go
+git clone https://github.com/devanshbatham/paramspider && cd paramspider && pip install . && cd .. && sudo rm -rf paramspider && sudo mv $HOME/.local/bin/paramspider /bin/paramspider
+
