@@ -3,6 +3,8 @@ hcxtools
 bully
 macchanger
 wifite
+golang-go
+gccgo-go
 netdiscover
 python3-pip
 pipx
@@ -40,3 +42,7 @@ xclip
 htop
 nfs-common
 dnsenum
+amass
+mysql-server
+smtp-user-enum
+chisel
