@@ -1,8 +1,3 @@
-hcxdumptool
-hcxtools
-bully
-macchanger
-wifite
 golang-go
 gccgo-go
 netdiscover
@@ -39,11 +34,10 @@ ligolo-ng
 bloodhound.py
 netexec
 xclip
-htop
 nfs-common
 dnsenum
 amass
 mysql-server
 smtp-user-enum
 chisel
-patator
+hydra
