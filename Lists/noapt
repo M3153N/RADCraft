@@ -4,3 +4,4 @@ pipx install xsstrike && pipx ensurepath
 go install github.com/tomnomnom/waybackurls@latest && sudo mv $HOME/go/bin/waybackurls /bin/waybackurls && sudo rm -rf go
 git clone https://github.com/devanshbatham/paramspider && cd paramspider && pip install . && cd .. && sudo rm -rf paramspider && sudo mv $HOME/.local/bin/paramspider /bin/paramspider
 wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nmapAutomator.sh && chmod +x nmapAutomator.sh && sudo mv nmapAutomator.sh /bin/nmap-auto
+git clone https://github.com/ManuMeisen/binaries
