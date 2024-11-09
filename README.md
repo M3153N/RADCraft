@@ -8,14 +8,9 @@ Feel free to download and modify this simple script with your own Lists (hosting
 
 ------------------------------------------------------------
 
-### **Installation Options** 
+### **Installation** 
 
-**Lastest binary from releases**   <------*Recommended*
-```
-wget https://github.com/ManuMeisen/Meisen/releases/latest/download/meisen_amd64_linux && chmod +x meisen_amd64_linux && sudo mv meisen_amd64_linux /bin/meisen
-```
-
-**Python script from this repo**
+**Install the Script**
 ```
 wget https://raw.githubusercontent.com/ManuMeisen/Meisen/main/meisen && chmod +x meisen && sudo mv meisen /bin/meisen
 ```
@@ -65,8 +60,6 @@ For **KALI:**
 ***extras:*** Some extra software for pentesting, not available to install through APT.
 
 ***others:*** Less important hacking software installed through APT.
-
-***binaries:*** Standalone binaries for Windows and Linux, plus some Shell scripts. *TIP*: dont use sudo when selecting this list.
 
 *Example*: 
 ```
