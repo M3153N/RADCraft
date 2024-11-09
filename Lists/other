@@ -4,5 +4,7 @@ pipx install xsstrike && pipx ensurepath
 go install github.com/tomnomnom/waybackurls@latest && sudo mv $HOME/go/bin/waybackurls /bin/waybackurls && sudo rm -rf go
 git clone https://github.com/devanshbatham/paramspider && cd paramspider && pip install . && cd .. && sudo rm -rf paramspider && sudo mv $HOME/.local/bin/paramspider /bin/paramspider
 wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nmapAutomator.sh && chmod +x nmapAutomator.sh && sudo mv nmapAutomator.sh /bin/nmap-auto
-git clone https://github.com/ManuMeisen/Tools
+git clone https://github.com/M3153N/Tools
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.5_all.deb && sudo dpkg -i ./protonvpn-stable-release_1.0.5_all.deb && sudo apt update && sudo apt install proton-vpn-gnome-desktop && sudo rm -f protonvpn-stable-release_1.0.5_all.deb
+wget https://raw.githubusercontent.com/M3153N/NetScan/refs/heads/main/netscan && chmod +x netscan && sudo mv netscan /bin/netscan
+wget https://raw.githubusercontent.com/M3153N/InsReq/refs/heads/main/insreq && chmod +x insreq && sudo mv insreq /bin/insreq
