@@ -12,12 +12,12 @@ Feel free to download and modify this simple script with your own Lists (hosting
 
 **Install the Script**
 ```
-wget https://raw.githubusercontent.com/ManuMeisen/Meisen/main/meisen && chmod +x meisen && sudo mv meisen /bin/meisen
+wget https://raw.githubusercontent.com/ManuMeisen/RADCraft/main/radcraft && chmod +x radcraft && sudo mv radcraft /bin/radcraft
 ```
 
 **Uninstall**
 ```
-sudo rm -f /bin/meisen
+sudo rm -f /bin/radcraft
 ```
 
 
@@ -28,23 +28,23 @@ sudo rm -f /bin/meisen
 
 **Install Lists** (you can select multiple lists but *ONLY* **APT** ones)
 ```
-sudo meisen install <listname1> <listname2>
+sudo radcraft install <listname1> <listname2>
 ```
-example: **sudo meisen install common kali**
+example: **sudo radcraft install common kali**
 
 
 
 
 **Uninstall Lists** (you can select multiple lists but *ONLY* **APT** ones)
 ```
-sudo meisen remove <listname1> <listname2>
+sudo radcraft remove <listname1> <listname2>
 ```
 
 
 
 **Execute Lists** (you can select multiple lists, but *NEVER* **APT** ones)
 ```
-sudo meisen execute <listname1> <listname2>
+sudo radcraft execute <listname1> <listname2>
 ```
 
 
@@ -63,10 +63,10 @@ For **KALI:**
 
 *Example*: 
 ```
-sudo meisen install basic && sudo meisen execute extras
+sudo radcraft install basic && sudo meisen execute extras
 ```
 
 ```
-meisen execute bins
+radcraft execute bins
 ```
 ------------------------------------------------------------------
