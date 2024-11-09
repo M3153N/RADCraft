@@ -12,7 +12,7 @@ Feel free to download and modify this simple script with your own Lists (hosting
 
 **Install the Script**
 ```
-wget https://raw.githubusercontent.com/ManuMeisen/RADCraft/main/radcraft && chmod +x radcraft && sudo mv radcraft /bin/radcraft
+wget https://raw.githubusercontent.com/M3153N/RADCraft/main/radcraft && chmod +x radcraft && sudo mv radcraft /bin/radcraft
 ```
 
 **Uninstall**
@@ -63,7 +63,7 @@ For **KALI:**
 
 *Example*: 
 ```
-sudo radcraft install basic && sudo meisen execute extras
+sudo radcraft install basic && sudo radcraft execute extras
 ```
 
 ```
