@@ -1,5 +1,5 @@
-# **Meisen**
-Auto Install or Remove programs from custom package lists.
+# **RADCraft**
+"Rapid Application Deploy Crafting" lets you auto Install or Remove programs from custom package lists.
 Feel free to download and modify this simple script with your own Lists (hosting them in a repo) or use the default ones (hosted here in the "Lists" folder).
 
 ***NOTE***: Some lists will install programs through APT, some other will install programs with custom commands, the late ones are prone to fail due the complexity of some of this commands, which may include docker, other github repos, etc.
