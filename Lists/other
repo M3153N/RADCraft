@@ -8,3 +8,4 @@ git clone https://github.com/M3153N/Tools
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.5_all.deb && sudo dpkg -i ./protonvpn-stable-release_1.0.5_all.deb && sudo apt update && sudo apt install proton-vpn-gnome-desktop -y && sudo rm -f protonvpn-stable-release_1.0.5_all.deb
 wget https://raw.githubusercontent.com/M3153N/NetScan/refs/heads/main/netscan && chmod +x netscan && sudo mv netscan /bin
 wget https://raw.githubusercontent.com/M3153N/InsReq/refs/heads/main/insreq && chmod +x insreq && sudo mv insreq /bin
+curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list >/dev/null && sudo apt install -y ngrok && ngrok config add-authtoken 2rci6ZcLLe8p78YJwcz1nMGQLct_69B7BKmTL7iQ8hs8sCocH
