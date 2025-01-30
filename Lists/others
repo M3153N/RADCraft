@@ -19,7 +19,7 @@ wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nma
 # === ProtonVPN ===
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.5_all.deb && sudo dpkg -i ./protonvpn-stable-release_1.0.5_all.deb && sudo apt update && sudo apt install proton-vpn-gnome-desktop -y && sudo rm -f protonvpn-stable-release_1.0.5_all.deb
 
-# === M3153N Tools ===
+# === Tools ===
 git clone https://github.com/M3153N/Tools
 
 # === NetScan ===
