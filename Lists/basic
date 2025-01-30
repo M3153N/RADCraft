@@ -1,6 +1,7 @@
 golang-go
 gccgo-go
 python3-pip
+jq
 pipx
 nmap
 rlwrap
