@@ -11,3 +11,9 @@ xfconf-query -c xsettings -p /Net/IconThemeName -s "Flat-Remix-Orange-Light"
 
 
 # === Wallpaper ===
+
+
+# === Autologin ===
+sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user=\).*/\1'"$USER"'/' /etc/lightdm/lightdm.conf && sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user-timeout=\).*/\10/' /etc/lightdm/lightdm.conf
+
+# === x ===
