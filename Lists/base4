@@ -1,0 +1,3 @@
+# === FastFetch ===
+fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen-config-force
+
