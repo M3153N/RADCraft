@@ -24,3 +24,4 @@ sudo sed -i 's/^GRUB_TERMINAL=.*/GRUB_TERMINAL=console/' /etc/default/grub && su
 
 
 # === $HOME ===
+echo -e '# This file is written by xdg-user-dirs-update\n# If you want to change or add directories, just edit the line you\'re\n# interested in. All local changes will be retained on the next run.\n# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped\n# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an\n# absolute path. No other format is supported.\n\nXDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
