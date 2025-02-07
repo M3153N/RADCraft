@@ -3,3 +3,6 @@ fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen
 
 # === Adwaita Theme & Orange Icons ===
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark" && xfconf-query -c xsettings -p /Net/IconThemeName -s "Flat-Remix-Orange-Light"
+
+# === Start Icon & Wallpaper ===
+
