@@ -8,7 +8,7 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Flat-Remix-Orange-Light"
 
 # === Start Menu Icon ===
-
+sed -i 's|<property name="button-icon" type="string" value="Zoom"/>|<property name="button-icon" type="string" value="/usr/share/icons/B4.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && xfce4-panel --restart
 
 # === Wallpaper ===
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/BASE4Sec.png"
