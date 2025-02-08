@@ -1,5 +1,5 @@
 # === FastFetch ===
-fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen-config-force
+sudo apt install fastfetch -y && fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen-config-force
 
 # === Adwaita Theme ===
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
