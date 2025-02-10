@@ -54,5 +54,3 @@ xfce4-panel --restart
 
 # === Tags & Grouping ===
 xfconf-query -c xfce4-panel -p /plugins/plugin-11/show-labels -s true && xfconf-query -c xfce4-panel -p /plugins/plugin-11/grouping -s false
-
-# === x ===
