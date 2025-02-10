@@ -23,7 +23,25 @@ sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo upda
 sudo sed -i 's/^GRUB_TERMINAL=.*/GRUB_TERMINAL=console/' /etc/default/grub && sudo sed -i '/background_image/d' /boot/grub/grub.cfg && sudo sed -i 's/^GRUB_GFXMODE=.*/GRUB_GFXMODE=640x480/' /etc/default/grub && sudo sed -i 's/^GRUB_BACKGROUND=.*/GRUB_BACKGROUND=""/' /etc/default/grub && sudo sed -i 's/^GRUB_THEME=.*/GRUB_THEME=""/' /etc/default/grub && sudo update-grub
 
 # === $HOME ===
-echo -e '# This file is written by xdg-user-dirs-update\n# If you want to change or add directories, just edit the line you\'re\n# interested in. All local changes will be retained on the next run.\n# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped\n# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an\n# absolute path. No other format is supported.\n\nXDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs && rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
+cat <<EOF > ~/.config/user-dirs.dirs
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run.
+# Format is XDG_xxx_DIR="\$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+
+XDG_DESKTOP_DIR="\$HOME/Desktop"
+XDG_DOWNLOAD_DIR="\$HOME/Downloads"
+XDG_TEMPLATES_DIR="\$HOME/Templates"
+XDG_PUBLICSHARE_DIR="\$HOME/Public"
+XDG_DOCUMENTS_DIR="\$HOME/Documents"
+XDG_MUSIC_DIR="\$HOME/Music"
+XDG_PICTURES_DIR="\$HOME/Pictures"
+XDG_VIDEOS_DIR="\$HOME/Videos"
+EOF
+rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
+
 
 # === No LogOut ===
 sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
