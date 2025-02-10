@@ -52,5 +52,8 @@ xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -s 1 -t int -s 
 # === Panel Restart===
 xfce4-panel --restart
 
-# === Tags & Grouping ===
-xfconf-query -c xfce4-panel -p /plugins/plugin-11/show-labels -s true && xfconf-query -c xfce4-panel -p /plugins/plugin-11/grouping -s false
+# === Panel Tags ===
+xfconf-query -c xfce4-panel -p /plugins/plugin-11/show-labels -s true
+
+# === Panel Grouping ===
+xfconf-query -c xfce4-panel -p /plugins/plugin-11/grouping -s 0
