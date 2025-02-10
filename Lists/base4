@@ -44,7 +44,7 @@ sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.j
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
 
 # === Panel Size ===
-xfconf-query -c xfce4-panel -p /panels/panel-1/size -s 48
+xfconf-query -c xfce4-panel -p /panels/panel-1/size -s 60
 
 # === Panel Items===
 xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -s 1 -t int -s 2 -t int -s 11 -t int -s 12 -t int -s 20 -t int -s 21 -t int -s 3
