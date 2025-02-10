@@ -28,9 +28,17 @@ echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$
 # === No LogOut ===
 sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
 
-# === ZSH ===
-sed -i '/^PROMPT=/d' ~/.zshrc && sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo -e '\n# Configuración de colores y prompt\nPROMPT="%F{208}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}$)%b%F{reset} "\nexport LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"\n\n# Desactivar apagado de pantalla y DPMS\nxset s off\nxset -dpms' >> ~/.zshrc && source ~/.zshrc
-echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc && source ~/.zshrc
+# === ZSH Prompt ===
+sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
+
+# === ZSH lsColors ===
+sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"' >> ~/.zshrc
+
+# === ZSH Highlight ===
+echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
+
+# === ZSH Reload ===
+source ~/.zshrc
 
 # === Login Background ===
 sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
