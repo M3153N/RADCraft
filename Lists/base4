@@ -35,12 +35,16 @@ echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc && source ~/.zshrc
 # === Login Background ===
 sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
 
-# === Panel ===
+# === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" && xfce4-panel --restart
+
+# === Panel Size ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/size -s 48 && xfce4-panel --restart
+
+# === Panel Items===
 xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -s 1 -t int -s 2 -t int -s 11 -t int -s 12 -t int -s 20 -t int -s 21 -t int -s 3 && xfce4-panel --restart
 
-# === x ===
-
+# === Tags & Grouping ===
+xfconf-query -c xfce4-panel -p /plugins/plugin-11/show-labels -s true && xfconf-query -c xfce4-panel -p /plugins/plugin-11/grouping -s false
 
 # === x ===
