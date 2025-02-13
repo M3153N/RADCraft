@@ -63,3 +63,8 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-11/show-labels -s true
 
 # === Panel Grouping ===
 xfconf-query -c xfce4-panel -p /plugins/plugin-11/grouping -s 0
+
+# === Desktop Hide Default Icons ===
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -s false
