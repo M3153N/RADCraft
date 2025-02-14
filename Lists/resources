@@ -3,8 +3,6 @@ wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png &
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
 xfce4-panel --restart
 
-xfce4-panel --restart
-
 # === Wallpaper ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png && cp BASE4Sec.png $HOME/.config/BASE4Sec.png
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
