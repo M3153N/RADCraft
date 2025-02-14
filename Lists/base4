@@ -1,4 +1,5 @@
 # === FastFetch ===
+sudo apt update
 sudo apt install fastfetch -y && fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen-config-force
 
 # === Adwaita Theme ===
@@ -11,7 +12,7 @@ xfconf-query -c xsettings -p /Net/IconThemeName -s "Flat-Remix-Orange-Light"
 sed -i 's|<property name="button-icon" type="string" value="Zoom"/>|<property name="button-icon" type="string" value="/usr/share/icons/B4.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && xfce4-panel --restart
 
 # === Wallpaper ===
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/BASE4Sec.png"
+#xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/BASE4Sec.png"
 
 # === Autologin ===
 sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user=\).*/\1'"$USER"'/' /etc/lightdm/lightdm.conf && sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user-timeout=\).*/\10/' /etc/lightdm/lightdm.conf
@@ -44,7 +45,7 @@ sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214
 echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
 
 # === Login Background ===
-sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
+#sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
 
 # === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
@@ -71,11 +72,11 @@ xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -s fa
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable -s false
 
 # === Start Menu ===
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/view-mode -s 0
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/position-categories-horizontal -s true
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/menu-width -s 2000
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/launcher-icon-size -s 6
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/category-icon-size -s 5
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/view-mode --type int -s 0
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/position-categories-horizontal --type bool -s true
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/menu-width --type int -s 2000
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/launcher-icon-size --type int -s 6
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --type int -s 5
 xfce4-panel -r
 
 # === Terminal ===
