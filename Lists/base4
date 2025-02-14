@@ -11,29 +11,11 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
 # === Orange Icons ===
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Flat-Remix-Orange-Light"
 
-# === Start Menu Icon ===
-sed -i 's|<property name="button-icon" type="string" value="Zoom"/>|<property name="button-icon" type="string" value="/usr/share/icons/B4.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && xfce4-panel --restart
-
-# === Wallpaper ===
-#xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/BASE4Sec.png"
-
 # === Autologin ===
 sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user=\).*/\1'"$USER"'/' /etc/lightdm/lightdm.conf && sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user-timeout=\).*/\10/' /etc/lightdm/lightdm.conf
 
 # === GRUB Skip ===
 sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo update-grub
-
-# === GRUB Theme ===
-# sudo sed -i 's/^GRUB_TERMINAL=.*/GRUB_TERMINAL=console/' /etc/default/grub && sudo sed -i '/background_image/d' /boot/grub/grub.cfg && sudo sed -i 's/^GRUB_GFXMODE=.*/GRUB_GFXMODE=640x480/' /etc/default/grub && sudo sed -i 's/^GRUB_BACKGROUND=.*/GRUB_BACKGROUND=""/' /etc/default/grub && sudo sed -i 's/^GRUB_THEME=.*/GRUB_THEME=""/' /etc/default/grub && sudo update-grub
-
-# === $HOME Set Dirs ===
-echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
-
-# === $HOME Restart Process ===
-#sudo pkill xfdesktop && xfdesktop &
-
-# === $HOME Delete Folders===
-rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
 
 # === No LogOut ===
 sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
@@ -47,19 +29,16 @@ sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214
 # === ZSH Highlight ===
 echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
 
-# === Login Background ===
-#sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
-
 # === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
 
 # === Panel Size ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/size -s 60
 
-# === Panel Items===
+# === Panel Items ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -s 1 -t int -s 2 -t int -s 11 -t int -s 12 -t int -s 20 -t int -s 21 -t int -s 3
 
-# === Panel Restart===
+# === Panel Restart ===
 xfce4-panel --restart
 
 # === Panel Tags ===
@@ -85,3 +64,16 @@ xfce4-panel -r
 # === Terminal ===
 sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
 sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
+
+###### NO ANDAAA ######
+
+# === GRUB Theme ===
+# sudo sed -i 's/^GRUB_TERMINAL=.*/GRUB_TERMINAL=console/' /etc/default/grub && sudo sed -i '/background_image/d' /boot/grub/grub.cfg && sudo sed -i 's/^GRUB_GFXMODE=.*/GRUB_GFXMODE=640x480/' /etc/default/grub && sudo sed -i 's/^GRUB_BACKGROUND=.*/GRUB_BACKGROUND=""/' /etc/default/grub && sudo sed -i 's/^GRUB_THEME=.*/GRUB_THEME=""/' /etc/default/grub && sudo update-grub
+
+# === $HOME Set Dirs ===
+echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
+
+# === $HOME Restart Process ===
+#sudo pkill xfdesktop && xfdesktop &
+# === $HOME Delete Folders===
+rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
