@@ -77,3 +77,7 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-1/menu-width -s 2000
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/launcher-icon-size -s 6
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/category-icon-size -s 5
 xfce4-panel -r
+
+# === Terminal ===
+sed -i 's/^fontSize=[0-9]*/fontSize=20/' ~/.config/qterminal.org/qterminal.ini
+sed -i 's/^colorScheme=.*/colorScheme=WhiteOnBlack/' ~/.config/qterminal.org/qterminal.ini
