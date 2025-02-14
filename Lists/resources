@@ -1,6 +1,8 @@
 # === Start Menu Icon === REVISAR
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo cp B4.png /usr/share/icons/B4.png
-xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon -s "/usr/share/icons/B4.png"
+xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
+xfce4-panel --restart
+
 xfce4-panel --restart
 
 # === Wallpaper ===
