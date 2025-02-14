@@ -79,5 +79,5 @@ xfconf-query -c xfce4-panel -p /plugins/plugin-1/category-icon-size -s 5
 xfce4-panel -r
 
 # === Terminal ===
-sed -i 's/^fontSize=[0-9]*/fontSize=20/' ~/.config/qterminal.org/qterminal.ini
-sed -i 's/^colorScheme=.*/colorScheme=WhiteOnBlack/' ~/.config/qterminal.org/qterminal.ini
+sed -i '/\[General\]/a fontSize=20' ~/.config/qterminal.org/qterminal.ini
+sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
