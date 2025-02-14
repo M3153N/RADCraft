@@ -53,6 +53,9 @@ xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s false
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -s false
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable -s false
 
+# === Desktop Icons Size ===
+xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -s 128 
+
 # === Start Menu ===
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/view-mode --type int -s 0
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/position-categories-horizontal --type bool -s true
