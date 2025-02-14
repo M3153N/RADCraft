@@ -61,18 +61,17 @@ xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/launcher-icon-size --t
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --type int -s 5
 xfce4-panel -r
 
+# === Start Menu Icon ===
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo cp B4.png /usr/share/icons/B4.png
+xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
+xfce4-panel --restart
 
-###### NO ANDAAA ######
-# === Terminal ===
-#sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
-#sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
+# === Wallpaper ===
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png && cp BASE4Sec.png $HOME/.config/BASE4Sec.png
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
 
-# === GRUB Theme ===
-# sudo sed -i 's/^GRUB_TERMINAL=.*/GRUB_TERMINAL=console/' /etc/default/grub && sudo sed -i '/background_image/d' /boot/grub/grub.cfg && sudo sed -i 's/^GRUB_GFXMODE=.*/GRUB_GFXMODE=640x480/' /etc/default/grub && sudo sed -i 's/^GRUB_BACKGROUND=.*/GRUB_BACKGROUND=""/' /etc/default/grub && sudo sed -i 's/^GRUB_THEME=.*/GRUB_THEME=""/' /etc/default/grub && sudo update-grub
+# === User Icon ===
+wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
-# === $HOME Set Dirs ===
-#echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
-# === $HOME Restart Process ===
-#sudo pkill xfdesktop && xfdesktop &
-# === $HOME Delete Folders===
-#rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
+# === Fastfetch Logo ===
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && cp logo.txt $HOME/.config/logo.txt
