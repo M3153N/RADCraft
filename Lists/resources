@@ -13,5 +13,8 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && cp logo.txt $HOME/.config/logo.txt
 
 # === Login Background ===
-#sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
+sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/Kali%20Orange.png
+sudo chmod 644 /usr/share/backgrounds/login-background.jpg
+(grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf)
+sudo systemctl restart lightdm
 
