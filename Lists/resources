@@ -1,8 +1,14 @@
-# === Start Menu Icon ===
-sed -i 's|<property name="button-icon" type="string" value="Zoom"/>|<property name="button-icon" type="string" value="/usr/share/icons/B4.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && xfce4-panel --restart
+# === Start Menu Icon === REVISAR
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo cp B4.png /usr/share/icons/B4.png
+sed -i 's|<property name="button-icon" type="string" value="kali-panel-menu"/>|<property name="button-icon" type="string" value="/usr/share/icons/B4.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && xfce4-panel --restart
 
 # === Wallpaper ===
-#xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/BASE4Sec.png"
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png && cp BASE4Sec.png $HOME/.config/BASE4Sec.png
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
+
+# === User Icon ===
+wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
 # === Login Background ===
 #sudo cp $HOME/.config/base4/background /usr/share/backgrounds/login-background.jpg && sudo chmod 644 /usr/share/backgrounds/login-background.jpg && (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf) && sudo systemctl restart lightdm
+
