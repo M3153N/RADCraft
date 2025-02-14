@@ -1,6 +1,6 @@
 # === Update & Upgrade ===
 sudo apt update
-sudo apt full-upgrade
+#sudo apt full-upgrade
 
 # === FastFetch ===
 sudo apt install fastfetch -y && fastfetch --logo /home/pentester/.config/base4/logo.txt --color '38;5;208' --gen-config-force
