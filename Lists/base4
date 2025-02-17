@@ -77,9 +77,9 @@ xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/la
 wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
 # === $HOME Set Dirs ===
+xdg-user-dirs-update --set DESKTOP "$HOME" --set DOWNLOAD "$HOME" --set TEMPLATES "$HOME" --set PUBLICSHARE "$HOME" --set DOCUMENTS "$HOME" --set MUSIC "$HOME" --set PICTURES "$HOME" --set VIDEOS "$HOME"
 echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
 xdg-user-dirs-update
-
 
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && cp logo.txt $HOME/.config/logo.txt
