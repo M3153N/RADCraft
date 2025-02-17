@@ -80,7 +80,7 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
 
 # === Login Background ===
-sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png
+sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/login.png
 sudo chmod 644 /usr/share/backgrounds/login-background.jpg
 (grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf)
 #sudo systemctl restart lightdm
