@@ -78,3 +78,7 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && cp logo.txt $HOME/.config/logo.txt
+
+# === Terminal ===
+sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
+sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
