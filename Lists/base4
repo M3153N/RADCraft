@@ -65,7 +65,7 @@ xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --t
 xfce4-panel -r
 
 # === Start Menu Icon ===
-wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo cp B4.png /usr/share/icons/B4.png
+wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo mv B4.png /usr/share/icons/B4.png
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
 xfce4-panel --restart
 
