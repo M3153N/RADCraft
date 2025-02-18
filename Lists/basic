@@ -40,8 +40,6 @@ default-mysql-server
 smtp-user-enum
 chisel
 hydra
-obsidian
-grub-customizer
 mimikatz
 linux-exploit-suggester
 villain
