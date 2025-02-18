@@ -61,7 +61,7 @@ xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/view-mode --type int -
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/position-categories-horizontal --type bool -s true
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/menu-width --type int -s 2000
 xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/launcher-icon-size --type int -s 6
-xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --type int -s 5
+xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --type int -s 4
 xfce4-panel -r
 
 # === Start Menu Icon ===
