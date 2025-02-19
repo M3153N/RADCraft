@@ -17,9 +17,6 @@ sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user=\).*/\1'"$USER"'/' /etc/
 # === GRUB Skip ===
 sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo update-grub
 
-# === No LogOut ===
-sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
-
 # === ZSH Prompt ===
 sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
 
@@ -79,11 +76,6 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
 
-# === Login Background ===
-sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/login.png
-sudo chmod 644 /usr/share/backgrounds/login-background.jpg
-(grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf)
-#sudo systemctl restart lightdm
 
 # === Terminal === detectar si existen las lineas y modificar en lugar de agregar?
 sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
