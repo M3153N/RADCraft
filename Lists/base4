@@ -74,6 +74,8 @@ xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/la
 wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
 # === Delete Folders & BookMarks ===
+sudo rm -rf "$HOME"/Desktop
+sudo rm -rf "$HOME"/Desktop
 sudo rm -rf "$HOME"/Documents
 sudo rm -rf "$HOME"/Downloads
 sudo rm -rf "$HOME"/Templates
