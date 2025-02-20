@@ -76,7 +76,13 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
 
+# === Delete Kali Launchers ===
+sudo rm /usr/share/applications/kali-nethunter.desktop /usr/share/applications/kali-bugs.desktop /usr/share/applications/kali-forums.desktop /usr/share/applications/kali-tools.desktop /usr/share/applications/kali-www.desktop /usr/share/applications/vulnhub.desktop /usr/share/applications/kali-docs.desktop /usr/share/applications/offsec-training.desktop /usr/share/applications/exploit-database.desktop
 
-# === Terminal === detectar si existen las lineas y modificar en lugar de agregar?
+# === Terminal === 
 sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
 sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
+# Verifica si ya existe. Si no, la agrega.
+#grep -q 'fontSize=18' ~/.config/qterminal.org/qterminal.ini || sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
+#grep -q 'colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini || sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
+
