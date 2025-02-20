@@ -1,19 +1,17 @@
-# === $HOME Set Dirs === ANDA SOLO DESPUES DEL 1ER REBOOT.
-echo -e 'XDG_DESKTOP_DIR="$HOME"\nXDG_DOWNLOAD_DIR="$HOME"\nXDG_TEMPLATES_DIR="$HOME"\nXDG_PUBLICSHARE_DIR="$HOME"\nXDG_DOCUMENTS_DIR="$HOME"\nXDG_MUSIC_DIR="$HOME"\nXDG_PICTURES_DIR="$HOME"\nXDG_VIDEOS_DIR="$HOME"' > ~/.config/user-dirs.dirs
-sudo rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures,Videos}
-
-# === File Explorer Places === NECESITA BORRAR FOLDERS ANTES
+# === $HOME ===
+sudo rm -rf "$HOME"/{Documents,Downloads,Templates,Public,Music,Pictures,Videos}
 sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
+
 # === Terminal === 
-sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
-sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
+#sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
+#sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
 
 # === Login Background ===
-sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/login.png
-sudo chmod 644 /usr/share/backgrounds/login-background.jpg
-(grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf)
+#sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/login.png
+#sudo chmod 644 /usr/share/backgrounds/login-background.jpg
+#(grep -q "background=" /etc/lightdm/lightdm-gtk-greeter.conf && sudo sed -i "s|^background=.*|background=/usr/share/backgrounds/login-background.jpg|" /etc/lightdm/lightdm-gtk-greeter.conf || echo -e "\n[greeter]\nbackground=/usr/share/backgrounds/login-background.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf)
 #sudo systemctl restart lightdm
 
 # === No LogOut ===
-sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
+#sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
