@@ -5,7 +5,9 @@ sudo rm -rf "$HOME"/{Desktop,Documents,Downloads,Templates,Public,Music,Pictures
 # === File Explorer Places === NECESITA BORRAR FOLDERS ANTES
 sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
-
+# === Terminal === 
+sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
+sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
 
 # === Login Background ===
 sudo wget -qO /usr/share/backgrounds/login-background.jpg https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/login.png
