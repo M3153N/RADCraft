@@ -1,11 +1,11 @@
 # === $HOME ===
-sudo rm -rf "$HOME"/Documents
-sudo rm -rf "$HOME"/Downloads
-sudo rm -rf "$HOME"/Templates
-sudo rm -rf "$HOME"/Public
-sudo rm -rf "$HOME"/Music
-sudo rm -rf "$HOME"/Pictures
-sudo rm -rf "$HOME"/Videos
+sudo rm -rf Documents
+sudo rm -rf Downloads
+sudo rm -rf Templates
+sudo rm -rf Public
+sudo rm -rf Music
+sudo rm -rf Pictures
+sudo rm -rf Videos
 sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
 
