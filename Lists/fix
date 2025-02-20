@@ -1,3 +1,7 @@
+# === Delete Desktop ===
+sudo rm -rf Desktop
+sudo rm -rf Desktop
+sudo rm -rf Desktop
 
 # === Terminal === 
 #sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
