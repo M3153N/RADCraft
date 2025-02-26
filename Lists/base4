@@ -3,7 +3,8 @@
 #sudo apt full-upgrade -y
 
 # === FastFetch ===
-sudo apt install fastfetch -y && fastfetch --logo $HOME/.config/logo.txt --color '38;5;208' --gen-config-force
+#sudo apt install fastfetch -y
+fastfetch --logo $HOME/.config/logo.txt --color '38;5;208' --gen-config-force
 
 # === Adwaita Theme ===
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
