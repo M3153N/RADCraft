@@ -77,6 +77,7 @@ wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/m
 # === Delete Folders & BookMarks ===
 sudo rm -rf "$HOME"/Desktop
 sudo rm -rf "$HOME"/Desktop
+sudo rm -rf "$HOME"/Desktop
 sudo rm -rf "$HOME"/Documents
 sudo rm -rf "$HOME"/Downloads
 sudo rm -rf "$HOME"/Templates
