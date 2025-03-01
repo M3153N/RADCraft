@@ -22,10 +22,9 @@ sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo upda
 sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
 
 # === ZSH lsColors ===
-sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"' >> ~/.zshrc
-
+#sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"' >> ~/.zshrc
 # === ZSH Highlight ===
-echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
+#echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
 
 # === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
