@@ -19,7 +19,11 @@ sudo sed -i '/^\[Seat:\*\]/,/^\[/ s/^#*\(autologin-user=\).*/\1'"$USER"'/' /etc/
 sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo update-grub
 
 # === ZSH Prompt ===
-sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
+#sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
+export BASE4_DISTRO=$(basename $(pwd))
+export PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}\$BASE4_DISTRO%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset}'
+source ~/.zshrc
+
 
 # === ZSH lsColors ===
 #sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"' >> ~/.zshrc
