@@ -21,11 +21,14 @@ sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub && sudo upda
 # === ZSH Prompt ===
 sed -i '/^PROMPT=/d' ~/.zshrc && echo "PROMPT='%F{208}┌──\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}(%B%F{red}%n%F{208}㉿%F{white}BASE%F{208}4%F{242}Security%b%F{208})-[%B%F{white}%(6~.%-1~/…/%4~.%5~)%b%F{208}]\n└─%B%(#.%F{red}#.%F{208}\$)%b%F{reset} '" >> ~/.zshrc
 
+# === EZA ===
+sudo apt install eza -y
+echo 'alias ls="eza --color=always --icons --group-directories-first --color-scale"' >> ~/.zshrc
+echo 'export EZA_COLORS="ur=92:uw=92:ux=92:gr=93:gw=93:gx=93:tr=91:tw=91:tx=91:ue=92:uu=38;5;208:da=97:nb=92:nk=92:nm=92:ng=92:nt=92"' >> ~/.zshrc
+echo 'export LS_COLORS="di=38;5;208:fi=38;5;255:ex=38;5;160:ln=38;5;33:*.txt=38;5;255:*.pdf=38;5;255:*.docx=38;5;255:*.odt=38;5;255:*.rtf=38;5;255:*.md=38;5;255:*.xlsx=38;5;32:*.csv=38;5;32:*.ods=38;5;32:*.db=38;5;32:*.sql=38;5;32:*.png=38;5;70:*.jpg=38;5;70:*.gif=38;5;70:*.bmp=38;5;70:*.svg=38;5;70:*.webp=38;5;70:*.mp4=38;5;70:*.mkv=38;5;70:*.avi=38;5;70:*.mov=38;5;70:*.webm=38;5;70:*.mp3=38;5;70:*.wav=38;5;70:*.flac=38;5;70:*.ogg=38;5;70:*.zip=38;5;178:*.rar=38;5;178:*.tar=38;5;178:*.gz=38;5;178:*.tar.gz=38;5;178:*.7z=38;5;178:*.exe=38;5;160:*.msi=38;5;160:*.app=38;5;160:*.sh=38;5;160:*.bat=38;5;160:*.run=38;5;160:*.py=38;5;255:*.js=38;5;255:*.ts=38;5;255:*.html=38;5;255:*.css=38;5;255:*.java=38;5;255:*.c=38;5;255:*.cpp=38;5;255:*.php=38;5;255:*.rb=38;5;255:*.go=38;5;255:*.ini=38;5;255:*.conf=38;5;255:*.yaml=38;5;255:*.yml=38;5;255:*.json=38;5;255:*.log=38;5;255"' >> ~/.zshrc
 
-# === ZSH lsColors ===
-#sed -i '/^export LS_COLORS=/d' ~/.zshrc && echo 'export LS_COLORS="di=1;38;5;214:fi=0;37:ln=1;36:pi=40;33:so=1;35:do=1;33:bd=1;31:cd=1;32:or=1;33:mi=1;35:ex=1;32:*.txt=0;33:*.md=0;33:*.sh=0;36"' >> ~/.zshrc
 # === ZSH Highlight ===
-#echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
+echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
 
 # === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
