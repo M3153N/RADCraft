@@ -88,8 +88,8 @@ sudo rm -rf "$HOME"/Public
 sudo rm -rf "$HOME"/Music
 sudo rm -rf "$HOME"/Pictures
 sudo rm -rf "$HOME"/Videos
-sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
-#Borrar users-dirs.dirs?
+sudo rm -rf "$HOME"/.config/user-dirs.dirs
+#sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
