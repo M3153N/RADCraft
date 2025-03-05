@@ -1,6 +1,6 @@
 # === Update & Upgrade ===
-#sudo apt update
-#sudo apt full-upgrade -y
+sudo apt update
+sudo apt full-upgrade -y
 
 # === FastFetch ===
 sudo apt install fastfetch -y
