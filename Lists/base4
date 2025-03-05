@@ -32,8 +32,8 @@ echo "ZSH_HIGHLIGHT_STYLES[command]='fg=214'" >> ~/.zshrc
 
 
 # === Desktop Gradient ===
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/rgba1 -t double -t double -t double -t double -s 0.000000 -s 0.000000 -s 0.000000 -s 1.000000
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/rgba2 -t double -t double -t double -t double -s 0.000000 -s 0.000000 -s 0.000000 -s 1.000000
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/rgba1 -t double -t double -t double -t double -s 0.000000 -s 0.000000 -s 0.000000 -s 1.000000 --create
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/rgba2 -t double -t double -t double -t double -s 0.000000 -s 0.000000 -s 0.000000 -s 1.000000 --create
 
 # === Panel Position ===
 xfconf-query -c xfce4-panel -p /panels/panel-1/position -s "p=12;x=0;y=0" 
