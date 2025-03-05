@@ -93,7 +93,8 @@ sudo rm -rf "$HOME"/Public
 sudo rm -rf "$HOME"/Music
 sudo rm -rf "$HOME"/Pictures
 sudo rm -rf "$HOME"/Videos
-sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
+sed -i "/file:\/\/\/$HOME\/Documents/d; /file:\/\/\/$HOME\/Music/d; /file:\/\/\/$HOME\/Pictures/d; /file:\/\/\/$HOME\/Videos/d; /file:\/\/\/$HOME\/Downloads/d" ~/.config/gtk-3.0/bookmarks
+#sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
 # === Terminal Font ===
 mkdir -p ~/.local/share/fonts
