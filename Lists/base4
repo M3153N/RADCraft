@@ -90,6 +90,11 @@ sudo rm -rf "$HOME"/Pictures
 sudo rm -rf "$HOME"/Videos
 sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
+# === Terminal Font ===
+mkdir -p ~/.local/share/fonts
+wget -O ~/.local/share/fonts/DroidSansMNerdFont-Regular.otf https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+fc-cache -fv ~/.local/share/fonts
+
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
 
