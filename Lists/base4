@@ -95,6 +95,9 @@ mkdir -p ~/.local/share/fonts
 wget -O ~/.local/share/fonts/DroidSansMNerdFont-Regular.otf https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 fc-cache -fv ~/.local/share/fonts
 
+# === Terminal Config ===
+wget -O ~/.config/qterminal.org/qterminal.ini https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/qterminal.ini
+
 # === Fastfetch Logo ===
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
 
