@@ -1,4 +1,8 @@
-# === No LogOut ===
-sudo sed -i 's/^#IdleAction=.*/IdleAction=ignore/; s/^#IdleActionSec=.*/IdleActionSec=0/' /etc/systemd/logind.conf && echo -e "xset s off\nxset -dpms" >> ~/.xsessionrc && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled --create -t bool -s false && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac --create -t int -s 0 && xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery --create -t int -s 0 && xfconf-query -c xfce4-session -p /general/LockCommand --create -t string -s "" && sudo systemctl restart systemd-logind
-
-
+#golang-go
+#gccgo-go
+#python3-pip
+jq
+#pipx
+nmap
+rlwrap
+errrortesttt
