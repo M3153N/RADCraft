@@ -1,8 +1,8 @@
-golang-go
-gccgo-go
-python3-pip
+#golang-go
+#gccgo-go
+#python3-pip
 jq
-pipx
+#pipx
 nmap
 rlwrap
 smbmap
