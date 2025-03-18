@@ -1,11 +1,50 @@
 #!/usr/bin/env python3
 
-import os
 import subprocess
 import sys
-from urllib.request import urlopen
+import argparse
+from urllib.request import urlopen  # Importación que faltaba
+
+# Repo predeterminado
+RADREP = "ManuMeisen/Meisen"
+
+# Colores
+RESET = "\033[0m"
+BOLD = "\033[1m"
+ORANGE = "\033[38;5;214m"
+GREEN = "\033[38;5;46m"
+RED = "\033[38;5;196m"
+YELLOW = "\033[38;5;226m"
+CYAN = "\033[38;5;51m"
+WHITE = "\033[37m"
+BLUE = "\033[38;5;33m"
+
+def print_logo():
+    logo = r"""
+ ____      _    ____   ____            __ _   
+|  _ \    / \  |  _ \ / ___|_ __ __ _ / _| |_ 
+| |_) |  / _ \ | | | | |   | '__/ _` | |_| __|
+|  _ <  / ___ \| |_| | |___| | | (_| |  _| |_ 
+|_| \_\/_/   \_\____/ \____|_|  \__,_|_|  \__| 
+    """
+    print(f"{ORANGE}{logo}{RESET}")
+
+def run_command(command, verbose=False, realtime=False):
+    if verbose:
+        print(f"{YELLOW}Ejecutando:{RESET} {BOLD}{command}{RESET}")
+    process = subprocess.Popen(command, shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if realtime and verbose:
+        for line in process.stdout:
+            print(line, end="")
+    stdout, stderr = process.communicate()
+    if verbose and not realtime:
+        print(f"{GREEN}{stdout}{RESET}")
+        print(f"{RED}{stderr}{RESET}")
+    return process
 
 def get_programs_list(repo, filename):
+    if not repo:
+        repo = RADREP
     url = f"https://raw.githubusercontent.com/{repo}/main/Lists/{filename}"
     try:
         with urlopen(url) as response:
@@ -13,139 +52,86 @@ def get_programs_list(repo, filename):
             programs = [line.strip() for line in content.split('\n')]
             return programs
     except Exception as e:
-        print(f"No se pudo obtener la lista de programas desde {url}: {e}")
+        print(f"{RED}Error: No se pudo obtener la lista de programas desde {url}: {e}{RESET}")
         return []
 
-def install(programs):
+def install(programs, verbose=False):
     installed = []
-    not_installed = []
-    total_programs = len(programs)
-    for i, program in enumerate(programs, start=1):
-        print(f"Instalando {program} ({i}/{total_programs})...")
-        result = subprocess.run(['sudo', 'DEBIAN_FRONTEND=noninteractive', 'apt', 'install', '-y', program], capture_output=True)
+    failed = []
+    print_logo()
+    for program in programs:
+        print(f"\n{BLUE}Instalando {program}...{RESET}\n")
+        result = run_command(f"sudo apt install -y {program}", verbose=verbose, realtime=verbose)
         if result.returncode == 0:
+            print(f"{GREEN}Instalado con éxito: {program}{RESET}")
             installed.append(program)
         else:
-            not_installed.append(program)
-        clear_screen()
-    return installed, not_installed
+            print(f"{RED}Error al instalar {program}{RESET}")
+            failed.append(program)
+    return installed, failed
 
-def remove(programs):
-    uninstalled = []
-    not_uninstalled = []
-    total_programs = len(programs)
-    for i, program in enumerate(programs, start=1):
-        print(f"Removiendo {program} ({i}/{total_programs})...")
-        result = subprocess.run(['sudo', 'DEBIAN_FRONTEND=noninteractive', 'apt', 'remove', '-y', program], capture_output=True)
-        if result.returncode == 0:
-            uninstalled.append(program)
-        else:
-            not_uninstalled.append(program)
-        clear_screen()
+def main_update(verbose=False):
+    run_command("sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y", verbose=verbose, realtime=verbose)
 
-    # Run 'apt autoremove' after removing programs
-    print("Realizando autoremove...")
-    subprocess.run(['sudo', 'DEBIAN_FRONTEND=noninteractive', 'apt', 'autoremove', '-y'], capture_output=True)
-
-    return uninstalled, not_uninstalled
-
-def get_commands_list(repo, filename):
-    url = f"https://raw.githubusercontent.com/{repo}/main/Lists/{filename}"
-    try:
-        with urlopen(url) as response:
-            content = response.read().decode('utf-8').strip()
-            commands = [line.strip() for line in content.split('\n')]
-            return commands
-    except Exception as e:
-        print(f"No se pudo obtener la lista de comandos desde {url}: {e}")
-        return []
-
-def execute_commands(commands):
-    executed = []
-    not_executed = []
-    total_commands = len(commands)
-    for i, command in enumerate(commands, start=1):
-        print(f"Ejecutando comando ({i}/{total_commands}): {command}")
-        result = subprocess.run(command, shell=True, capture_output=True)
-        if result.returncode == 0:
-            executed.append(command)
-        else:
-            not_executed.append(command)
-        clear_screen()
-    return executed, not_executed
-
-def clear_screen():
-    os.system('clear' if os.name == 'posix' else 'cls')
-
-def main():
-    repo = 'ManuMeisen/Meisen'  # Reemplaza con tu usuario y nombre del repositorio
-
-    if len(sys.argv) < 3:
-        print("Uso: python programa.py <install/remove/execute> <lista1> <lista2> ...")
-        return
-
-    action = sys.argv[1]
-    lists_to_process = sys.argv[2:]
-
-    if action == 'install':
-        installed = []
-        not_installed = []
-        for lista in lists_to_process:
-            programs = get_programs_list(repo, lista)
-            if programs:
-                installed_list, not_installed_list = install(programs)
-                installed.extend(installed_list)
-                not_installed.extend(not_installed_list)
-            else:
-                print(f"No se encontró la lista '{lista}' en el repositorio.")
-        
-        print("Programas instalados:")
-        for program in installed:
-            print("-", program)
-        print("Programas no instalados:")
-        for program in not_installed:
-            print("-", program)
-
-    elif action == 'remove':
-        uninstalled = []
-        not_uninstalled = []
-        for lista in lists_to_process:
-            programs = get_programs_list(repo, lista)
-            if programs:
-                uninstalled_list, not_uninstalled_list = remove(programs)
-                uninstalled.extend(uninstalled_list)
-                not_uninstalled.extend(not_uninstalled_list)
-            else:
-                print(f"No se encontró la lista '{lista}' en el repositorio.")
-        
-        print("Programas desinstalados:")
-        for program in uninstalled:
-            print("-", program)
-        print("Programas no desinstalados:")
-        for program in not_uninstalled:
-            print("-", program)
-
-    elif action == 'execute':
-        executed = []
-        not_executed = []
-        for lista in lists_to_process:
-            commands = get_commands_list(repo, lista)
-            if commands:
-                executed_list, not_executed_list = execute_commands(commands)
-                executed.extend(executed_list)
-                not_executed.extend(not_executed_list)
-            else:
-                print(f"No se encontró la lista '{lista}' en el repositorio.")
-        
-        print("Comandos ejecutados correctamente:")
-        for command in executed:
-            print("-", command)
-        print("Comandos no ejecutados:")
-        for command in not_executed:
-            print("-", command)
-
+def main_install(list_name, verbose=False):
+    programas = get_programs_list(RADREP, list_name)
+    installed, failed = install(programas, verbose=verbose)
+    if failed:
+        print(f"\n{RED}Los siguientes programas no se pudieron instalar:{RESET}")
+        for program in failed:
+            print(f"{RED}- {program}{RESET}")
     else:
-        print("Acción no reconocida. Use 'install', 'remove' o 'execute'.")
+        print(f"{GREEN}Todos los programas se instalaron correctamente.{RESET}")
+
+def main_execute(list_name, verbose=False):
+    comandos = get_programs_list(RADREP, list_name)
+    print(f"{CYAN}Ejecutando los comandos de la lista '{list_name}'...{RESET}\n")
+    for cmd in comandos:
+        print(f"{ORANGE}Ejecutando:{RESET} {BOLD}{cmd}{RESET}")
+        run_command(cmd, verbose=verbose, realtime=verbose)
+
+def main_read(list_name):
+    print_logo()
+    programas = get_programs_list(RADREP, list_name)
+    if programas:
+        print(f"\n{WHITE}{BOLD}{list_name}:\n{RESET}")
+        print("\n".join(programas))
+    else:
+        print(f"{RED}Error: La lista '{list_name}' no se encontró ni localmente ni en el repositorio.{RESET}")
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="radcraft - Herramienta para gestionar listas APT y ejecutar comandos.",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+
+    parser.add_argument('-v', action='store_true', help="Mostrar detalles en tiempo real de la ejecución")
+    parser.add_argument('-u', action='store_true', help="Actualizar el sistema mediante update && full-upgrade && autoremove.")
+    parser.add_argument('-i', type=str, help="Instalar lista APT.")
+    parser.add_argument('-e', type=str, help="Ejecutar lista de comandos.")
+    parser.add_argument('-r', type=str, help="Leer lista específica o un resumen de las listas alojadas en el repositorio.")
+
+    return parser.parse_args()
+
+def handle_flags(args):
+    verbose = args.v
+    if args.u:
+        main_update(verbose=verbose)
+    elif args.i:
+        main_install(args.i, verbose=verbose)
+    elif args.e:
+        main_execute(args.e, verbose=verbose)
+    elif args.r:
+        main_read(args.r)
+    else:
+        print("""
+radcraft -u                Actualizar el sistema mediante update && full-upgrade && autoremove.
+radcraft -flag <arg> -v     Mostrar detalles en tiempo real de la ejecución (combinar con -u, -i, -e siempre al final)
+radcraft -i <APTList>       Instalar lista APT.
+radcraft -e <CommandList>   Ejecutar lista de comandos.
+radcraft -r <List> or index Leer lista específica o un resumen de las listas alojadas en el repositorio.
+""")
 
 if __name__ == "__main__":
-    main()
+    args = parse_args()
+    handle_flags(args)
