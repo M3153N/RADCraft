@@ -1,0 +1,1 @@
+wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Linux" -O "$HOME/burpsuite.sh" && chmod +x $HOME/burpsuite.sh && sudo bash $HOME/burpsuite.sh -q && sudo rm -f $HOME/burpsuite.sh
