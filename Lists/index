@@ -2,9 +2,13 @@ This repo:
 https://github.com/M3153N/RADCraft/new/main/Lists
 
 APT Lists:
-basic (basic tools for pentesting)
-optional (some other tools, not always needed)
+(Remember to use -i to install)
+---> basic (basic tools for pentesting)
+---> optional (some other tools, not always needed)
 
 Commands Lists:
-base4 (BASE4Sec mods for Kali VMs)
-others (some other tools that are not in the kali APT repo)
+(Remember to use -e to execute)
+---> base4 (BASE4Sec mods for Kali VMs)
+---> others (some other tools that are not in the kali APT repo)
+---> burpsuite (Burpsuite Pro autoinstaller, you still need a valid License)
+---> nessus (Nessus autoinstaller, you still need a valid License)
