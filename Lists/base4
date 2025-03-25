@@ -79,6 +79,10 @@ xfce4-panel --restart
 wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png && mv BASE4Sec.png $HOME/.config/BASE4Sec.png
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
 
+# === GRUB BackGround ===
+sudo wget -O /usr/share/grub/themes/Kali https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/grub-4x3.png
+sudo wget -O /usr/share/grub/themes/Kali https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/grub-16x9.png
+
 # === User Icon ===
 wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
