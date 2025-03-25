@@ -120,6 +120,9 @@ echo '%sudo ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/nopassword > /dev
 sed -i '/\[General\]/a fontSize=18' ~/.config/qterminal.org/qterminal.ini
 sed -i '/\[General\]/a colorScheme=WhiteOnBlack' ~/.config/qterminal.org/qterminal.ini
 
+# === NoLogOut === 
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -s false --create -t bool
+
 # === Delete Kali Launchers ===
 sudo rm -f /usr/share/applications/kali-nethunter.desktop /usr/share/applications/kali-bugs.desktop /usr/share/applications/kali-forums.desktop /usr/share/applications/kali-tools.desktop /usr/share/applications/kali-www.desktop /usr/share/applications/vulnhub.desktop /usr/share/applications/kali-docs.desktop /usr/share/applications/offsec-training.desktop /usr/share/applications/exploit-database.desktop
 
