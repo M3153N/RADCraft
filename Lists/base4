@@ -14,7 +14,7 @@ sudo apt install btop -y
 
 # === FastFetch ===
 sudo apt install fastfetch -y
-fastfetch --logo $HOME/.config/logo.txt --color '38;5;208' --gen-config-force
+fastfetch --logo ~/.config/logo.txt --color '38;5;208' --gen-config-force
 
 # === Adwaita Theme ===
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
@@ -80,33 +80,33 @@ xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --t
 xfce4-panel -r
 
 # === Start Menu Icon ===
-wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png && sudo mv B4.png /usr/share/icons/B4.png
+wget -O /usr/share/icons/B4.png https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
 xfce4-panel --restart
 
 # === Wallpaper ===
-wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png && mv BASE4Sec.png $HOME/.config/BASE4Sec.png
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
+wget -O ~/.config/BASE4Sec.png https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "~/.config/BASE4Sec.png"
 
 # === GRUB BackGround ===
 sudo wget -O /usr/share/grub/themes/Kali https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/grub-4x3.png
 sudo wget -O /usr/share/grub/themes/Kali https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/grub-16x9.png
 
 # === User Icon ===
-wget -qO ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
+wget -O ~/.face https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/.face && chmod 644 ~/.face
 
 # === Delete Folders & BookMarks ===
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Documents
-sudo rm -rf "$HOME"/Downloads
-sudo rm -rf "$HOME"/Templates
-sudo rm -rf "$HOME"/Public
-sudo rm -rf "$HOME"/Music
-sudo rm -rf "$HOME"/Pictures
-sudo rm -rf "$HOME"/Videos
-sed -i "/file:\/\/\/home\/$USER\/Documents/d; /file:\/\/\/home\/$USER\/Music/d; /file:\/\/\/home\/$USER\/Pictures/d; /file:\/\/\/home\/$USER\/Videos/d; /file:\/\/\/home\/$USER\/Downloads/d" ~/.config/gtk-3.0/bookmarks
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Documents
+sudo rm -rf ~/Downloads
+sudo rm -rf ~/Templates
+sudo rm -rf ~/Public
+sudo rm -rf ~/Music
+sudo rm -rf ~/Pictures
+sudo rm -rf ~/Videos
+sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
 
 # === Terminal Font ===
 mkdir -p ~/.local/share/fonts
@@ -117,7 +117,7 @@ fc-cache -fv ~/.local/share/fonts
 wget -O ~/.config/qterminal.org/qterminal.ini https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/qterminal.ini
 
 # === Fastfetch Logo ===
-wget https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt && mv logo.txt $HOME/.config/logo.txt
+wget -O ~/.config/logo.txt https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/logo.txt
 
 # === Delete Kali Launchers ===
 sudo rm -f /usr/share/applications/kali-nethunter.desktop /usr/share/applications/kali-bugs.desktop /usr/share/applications/kali-forums.desktop /usr/share/applications/kali-tools.desktop /usr/share/applications/kali-www.desktop /usr/share/applications/vulnhub.desktop /usr/share/applications/kali-docs.desktop /usr/share/applications/offsec-training.desktop /usr/share/applications/exploit-database.desktop
@@ -136,14 +136,14 @@ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -s fals
 sudo rm -f /usr/share/applications/kali-nethunter.desktop /usr/share/applications/kali-bugs.desktop /usr/share/applications/kali-forums.desktop /usr/share/applications/kali-tools.desktop /usr/share/applications/kali-www.desktop /usr/share/applications/vulnhub.desktop /usr/share/applications/kali-docs.desktop /usr/share/applications/offsec-training.desktop /usr/share/applications/exploit-database.desktop
 
 # === Delete Folders & BookMarks ===
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Desktop
-sudo rm -rf "$HOME"/Documents
-sudo rm -rf "$HOME"/Downloads
-sudo rm -rf "$HOME"/Templates
-sudo rm -rf "$HOME"/Public
-sudo rm -rf "$HOME"/Music
-sudo rm -rf "$HOME"/Pictures
-sudo rm -rf "$HOME"/Videos
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Desktop
+sudo rm -rf ~/Documents
+sudo rm -rf ~/Downloads
+sudo rm -rf ~/Templates
+sudo rm -rf ~/Public
+sudo rm -rf ~/Music
+sudo rm -rf ~/Pictures
+sudo rm -rf ~/Videos
 sed -i '/file:\/\/\/home\/pentester\/Documents/d; /file:\/\/\/home\/pentester\/Music/d; /file:\/\/\/home\/pentester\/Pictures/d; /file:\/\/\/home\/pentester\/Videos/d; /file:\/\/\/home\/pentester\/Downloads/d' ~/.config/gtk-3.0/bookmarks
