@@ -2,6 +2,16 @@
 sudo apt update
 #sudo apt full-upgrade -y
 
+# === Ranger ===
+sudo apt install ranger -y
+
+# === BatCat ===
+sudo apt install batcat -y
+echo 'alias cat="batcat"' >> ~/.zshrc
+
+# === BTop ===
+sudo apt install btop -y
+
 # === FastFetch ===
 sudo apt install fastfetch -y
 fastfetch --logo $HOME/.config/logo.txt --color '38;5;208' --gen-config-force
