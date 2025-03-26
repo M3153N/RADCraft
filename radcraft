@@ -29,13 +29,17 @@ def print_logo():
     """
     print(f"{ORANGE}{logo}{RESET}")
 
-def run_command(command):
+def run_command(command, verbose=False, realtime=False):
+    if verbose:
+        print(f"{YELLOW}{BOLD}{command}{RESET}")  # Solo muestra el comando si verbose es True
     process = subprocess.Popen(command, shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    for line in process.stdout:
-        print(line, end="")
-    stdout, stderr = process.communicate()
-    print(f"{GREEN}{stdout}{RESET}")
-    print(f"{RED}{stderr}{RESET}")
+    if realtime:
+        # Muestra la salida del comando en tiempo real
+        for line in process.stdout:
+            print(line, end="")
+        for line in process.stderr:
+            print(line, end="", file=sys.stderr)
+    process.communicate()  # Espera a que termine la ejecución
     return process
 
 def get_programs_list(repo, filename):
@@ -66,17 +70,25 @@ def install(programs):
             failed.append(program)
     return installed, failed
 
-def main_execute(list_name):
+def main_execute(list_name, verbose=False):
     comandos = get_programs_list(RADREP, list_name)
     print(f"{CYAN}Ejecutando los comandos de la lista '{list_name}'...{RESET}\n")
     for cmd in comandos:
         cmd = cmd.strip()
-        # Solo ejecuta comandos que no estén vacíos o sean comentarios
         if cmd.startswith("#"):
-            print(f"{ORANGE}{BOLD}{cmd}{RESET}")  # Muestra los comentarios tal como están
+            print(f"{ORANGE}{BOLD}{cmd}{RESET}")  # Solo muestra el comentario como título
         elif cmd:
-            print(f"{BOLD}{cmd}{RESET}")  # Muestra el comando sin prefijo "Ejecutando:"
-            run_command(cmd)
+            run_command(cmd, verbose=verbose, realtime=True)  # Ejecuta el comando y muestra la salida en tiempo real
+
+def main_execute_simple(list_name):
+    comandos = get_programs_list(RADREP, list_name)
+    print(f"{CYAN}Ejecutando los comandos de la lista '{list_name}'...{RESET}\n")
+    for cmd in comandos:
+        cmd = cmd.strip()
+        if cmd.startswith("#"):
+            print(f"{ORANGE}{BOLD}{cmd}{RESET}")  # Solo muestra el comentario como título
+        elif cmd:
+            run_command(cmd)  # Ejecuta el comando sin mostrarlo en la terminal
 
 def main_read(list_name):
     print_logo()
@@ -93,19 +105,23 @@ def parse_args():
         formatter_class=argparse.RawTextHelpFormatter
     )
 
-    parser.add_argument('-e', type=str, help="Ejecutar lista de comandos.")
+    parser.add_argument('-ev', type=str, help="Ejecutar lista de comandos con detalles en tiempo real.")  # Acepta el nombre de lista
+    parser.add_argument('-e', type=str, help="Ejecutar lista de comandos de forma resumida (solo título).")  # Nuevo flag para ejecución resumida (solo comentario)
     parser.add_argument('-r', type=str, help="Leer lista específica o un resumen de las listas alojadas en el repositorio.")
 
     return parser.parse_args()
 
 def handle_flags(args):
-    if args.e:
-        main_execute(args.e)
+    if args.ev:
+        main_execute(args.ev, verbose=True)  # Llama a la función para ejecutar la lista de comandos con detalles en tiempo real
+    elif args.e:
+        main_execute_simple(args.e)  # Llama a la función para ejecutar la lista de comandos de forma resumida (solo comentario)
     elif args.r:
         main_read(args.r)
     else:
         print("""
-radcraft -e <CommandList>   Ejecutar lista de comandos.
+radcraft -ev <CommandList>   Ejecutar lista de comandos con detalles en tiempo real.
+radcraft -e <CommandList>    Ejecutar lista de comandos de forma resumida (solo título).
 radcraft -r <List> or index Leer lista específica o un resumen de las listas alojadas en el repositorio.
 """)
 
