@@ -5,10 +5,10 @@ import sys
 import argparse
 from urllib.request import urlopen  # Importación que faltaba
 
-# Repo predeterminado
+# Configuración predeterminada del repositorio
 RADREP = "ManuMeisen/Meisen"
 
-# Colores
+# Definimos los colores
 RESET = "\033[0m"
 BOLD = "\033[1m"
 ORANGE = "\033[38;5;214m"
@@ -29,17 +29,13 @@ def print_logo():
     """
     print(f"{ORANGE}{logo}{RESET}")
 
-def run_command(command, verbose=False, realtime=False):
-    if verbose:
-        print(f"{YELLOW}Ejecutando:{RESET} {BOLD}{command}{RESET}")
+def run_command(command):
     process = subprocess.Popen(command, shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if realtime and verbose:
-        for line in process.stdout:
-            print(line, end="")
+    for line in process.stdout:
+        print(line, end="")
     stdout, stderr = process.communicate()
-    if verbose and not realtime:
-        print(f"{GREEN}{stdout}{RESET}")
-        print(f"{RED}{stderr}{RESET}")
+    print(f"{GREEN}{stdout}{RESET}")
+    print(f"{RED}{stderr}{RESET}")
     return process
 
 def get_programs_list(repo, filename):
@@ -55,13 +51,13 @@ def get_programs_list(repo, filename):
         print(f"{RED}Error: No se pudo obtener la lista de programas desde {url}: {e}{RESET}")
         return []
 
-def install(programs, verbose=False):
+def install(programs):
     installed = []
     failed = []
     print_logo()
     for program in programs:
         print(f"\n{BLUE}Instalando {program}...{RESET}\n")
-        result = run_command(f"sudo apt install -y {program}", verbose=verbose, realtime=verbose)
+        result = run_command(f"sudo apt install -y {program}")
         if result.returncode == 0:
             print(f"{GREEN}Instalado con éxito: {program}{RESET}")
             installed.append(program)
@@ -70,25 +66,17 @@ def install(programs, verbose=False):
             failed.append(program)
     return installed, failed
 
-def main_update(verbose=False):
-    run_command("sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y", verbose=verbose, realtime=verbose)
-
-def main_install(list_name, verbose=False):
-    programas = get_programs_list(RADREP, list_name)
-    installed, failed = install(programas, verbose=verbose)
-    if failed:
-        print(f"\n{RED}Los siguientes programas no se pudieron instalar:{RESET}")
-        for program in failed:
-            print(f"{RED}- {program}{RESET}")
-    else:
-        print(f"{GREEN}Todos los programas se instalaron correctamente.{RESET}")
-
-def main_execute(list_name, verbose=False):
+def main_execute(list_name):
     comandos = get_programs_list(RADREP, list_name)
     print(f"{CYAN}Ejecutando los comandos de la lista '{list_name}'...{RESET}\n")
     for cmd in comandos:
-        print(f"{ORANGE}Ejecutando:{RESET} {BOLD}{cmd}{RESET}")
-        run_command(cmd, verbose=verbose, realtime=verbose)
+        cmd = cmd.strip()
+        # Solo ejecuta comandos que no estén vacíos o sean comentarios
+        if cmd.startswith("#"):
+            print(f"{ORANGE}{BOLD}{cmd}{RESET}")  # Muestra los comentarios tal como están
+        elif cmd:
+            print(f"{BOLD}{cmd}{RESET}")  # Muestra el comando sin prefijo "Ejecutando:"
+            run_command(cmd)
 
 def main_read(list_name):
     print_logo()
@@ -105,29 +93,18 @@ def parse_args():
         formatter_class=argparse.RawTextHelpFormatter
     )
 
-    parser.add_argument('-v', action='store_true', help="Mostrar detalles en tiempo real de la ejecución")
-    parser.add_argument('-u', action='store_true', help="Actualizar el sistema mediante update && full-upgrade && autoremove.")
-    parser.add_argument('-i', type=str, help="Instalar lista APT.")
     parser.add_argument('-e', type=str, help="Ejecutar lista de comandos.")
     parser.add_argument('-r', type=str, help="Leer lista específica o un resumen de las listas alojadas en el repositorio.")
 
     return parser.parse_args()
 
 def handle_flags(args):
-    verbose = args.v
-    if args.u:
-        main_update(verbose=verbose)
-    elif args.i:
-        main_install(args.i, verbose=verbose)
-    elif args.e:
-        main_execute(args.e, verbose=verbose)
+    if args.e:
+        main_execute(args.e)
     elif args.r:
         main_read(args.r)
     else:
         print("""
-radcraft -u                Actualizar el sistema mediante update && full-upgrade && autoremove.
-radcraft -flag <arg> -v     Mostrar detalles en tiempo real de la ejecución (combinar con -u, -i, -e siempre al final)
-radcraft -i <APTList>       Instalar lista APT.
 radcraft -e <CommandList>   Ejecutar lista de comandos.
 radcraft -r <List> or index Leer lista específica o un resumen de las listas alojadas en el repositorio.
 """)
