@@ -1,47 +1,47 @@
-#golang-go
-#gccgo-go
-#python3-pip
-jq
-#pipx
-nmap
-rlwrap
-smbmap
-ftp
-proxychains
-exploitdb
-ffuf
-nikto
-enum4linux
-sqlmap
-responder
-wordlists
-seclists
-metasploit-framework
-burpsuite
-hashcat
-john
-impacket-scripts
-certipy-ad
-php
-whatweb
-tcpdump
-bloodhound
-freerdp2-x11
-smbclient
-wpscan
-evil-winrm
-ligolo-ng
-netexec
-xclip
-nfs-common
-dnsenum
-amass
-default-mysql-server
-smtp-user-enum
-chisel
-hydra
-mimikatz
-linux-exploit-suggester
-html2text
-sublist3r
-paramspider
+sudo apt install -y golang-go
+sudo apt install -y gccgo-go
+sudo apt install -y python3-pip
+sudo apt install -y jq
+sudo apt install -y pipx
+sudo apt install -y nmap
+sudo apt install -y rlwrap
+sudo apt install -y smbmap
+sudo apt install -y ftp
+sudo apt install -y proxychains
+sudo apt install -y exploitdb
+sudo apt install -y ffuf
+sudo apt install -y nikto
+sudo apt install -y enum4linux
+sudo apt install -y sqlmap
+sudo apt install -y responder
+sudo apt install -y wordlists
+sudo apt install -y seclists
+sudo apt install -y metasploit-framework
+sudo apt install -y burpsuite
+sudo apt install -y hashcat
+sudo apt install -y john
+sudo apt install -y impacket-scripts
+sudo apt install -y certipy-ad
+sudo apt install -y php
+sudo apt install -y whatweb
+sudo apt install -y tcpdump
+sudo apt install -y bloodhound
+sudo apt install -y freerdp2-x11
+sudo apt install -y smbclient
+sudo apt install -y wpscan
+sudo apt install -y evil-winrm
+sudo apt install -y ligolo-ng
+sudo apt install -y netexec
+sudo apt install -y xclip
+sudo apt install -y nfs-common
+sudo apt install -y dnsenum
+sudo apt install -y amass
+sudo apt install -y default-mysql-server
+sudo apt install -y smtp-user-enum
+sudo apt install -y chisel
+sudo apt install -y hydra
+sudo apt install -y mimikatz
+sudo apt install -y linux-exploit-suggester
+sudo apt install -y html2text
+sudo apt install -y sublist3r
+sudo apt install -y paramspider
