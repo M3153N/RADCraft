@@ -1,17 +1,30 @@
 # === Kerbrute ===
-wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64 && chmod +x kerbrute_linux_amd64 && sudo mv kerbrute_linux_amd64 /bin/kerbrute
+wget -O /tmp/kerbrute https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64
+chmod +x /tmp/kerbrute
+sudo mv /tmp/kerbrute /bin/kerbrute
 
 # === RustScan ===
-rustscan_version=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest | jq -r '.tag_name') && rustscan_deb="rustscan_${rustscan_version}_amd64.deb" && wget "https://github.com/RustScan/RustScan/releases/download/${rustscan_version}/${rustscan_deb}" -O "$rustscan_deb" && sudo dpkg -i "$rustscan_deb" && rm "$rustscan_deb"
+rustscan_version=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest | jq -r '.tag_name')
+rustscan_deb="rustscan_${rustscan_version}_amd64.deb"
+wget -O /tmp/"$rustscan_deb" "https://github.com/RustScan/RustScan/releases/download/${rustscan_version}/${rustscan_deb}"
+sudo dpkg -i "$rustscan_deb"
+sudo rm -f /tmp/"$rustscan_deb"
 
 # === Caido ===
-caido_version=$(curl -s https://api.github.com/repos/caido/caido/releases/latest | jq -r '.tag_name') && caido_deb="caido-desktop-${caido_version}-linux-x86_64.deb" && wget "https://caido.download/releases/${caido_version}/${caido_deb}" -O "$caido_deb" && sudo dpkg -i "$caido_deb" && rm "$caido_deb"
+caido_version=$(curl -s https://api.github.com/repos/caido/caido/releases/latest | jq -r '.tag_name')
+caido_deb="caido-desktop-${caido_version}-linux-x86_64.deb"
+wget -O /tmp/"$caido_deb" "https://caido.download/releases/${caido_version}/${caido_deb}"
+sudo dpkg -i "$caido_deb"
+sudo rm -f /tmp/"$caido_deb"
 
 # === XSStrike ===
-pipx install xsstrike && pipx ensurepath
+pipx install xsstrike
+pipx ensurepath
 
 # === Waybackurls ===
-go install github.com/tomnomnom/waybackurls@latest && sudo mv $HOME/go/bin/waybackurls /bin/waybackurls && sudo rm -rf go
+#go install github.com/tomnomnom/waybackurls@latest
+#sudo mv $HOME/go/bin/waybackurls /bin/waybackurls
+#sudo rm -rf go
 
 # === NmapAutomator ===
 wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nmapAutomator.sh && chmod +x nmapAutomator.sh && sudo mv nmapAutomator.sh /bin/nmap-auto
