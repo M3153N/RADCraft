@@ -1,20 +1,20 @@
-mongodb
-tftp-hpa
-ghidra
-ncurses-hexedit
-jd-gui
-exiftool
-cl-postgres
-wireshark
-cewl
-htop
-hcxdumptool
-hcxtools
-bully
-macchanger
-wifite
-sqsh
-odat
-oracle-instantclient-sqlplus
-xsser
-villain
+sudo apt install -y mongodb
+sudo apt install -y tftp-hpa
+sudo apt install -y ghidra
+sudo apt install -y ncurses-hexedit
+sudo apt install -y jd-gui
+sudo apt install -y exiftool
+sudo apt install -y cl-postgres
+sudo apt install -y wireshark
+sudo apt install -y cewl
+sudo apt install -y htop
+sudo apt install -y hcxdumptool
+sudo apt install -y hcxtools
+sudo apt install -y bully
+sudo apt install -y macchanger
+sudo apt install -y wifite
+sudo apt install -y sqsh
+sudo apt install -y odat
+sudo apt install -y oracle-instantclient-sqlplus
+sudo apt install -y xsser
+sudo apt install -y villain
