@@ -21,11 +21,6 @@ sudo rm -f /tmp/"$caido_deb"
 pipx install xsstrike
 pipx ensurepath
 
-# === Waybackurls ===
-#go install github.com/tomnomnom/waybackurls@latest
-#sudo mv $HOME/go/bin/waybackurls /bin/waybackurls
-#sudo rm -rf go
-
 # === NmapAutomator ===
 wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nmapAutomator.sh && chmod +x nmapAutomator.sh && sudo mv nmapAutomator.sh /bin/nmap-auto
 
