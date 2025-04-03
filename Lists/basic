@@ -46,3 +46,4 @@ sudo apt install -y html2text
 sudo apt install -y sublist3r
 sudo apt install -y paramspider
 sudo apt install -y getallurls
+sudo apt install -y httpx-toolkit
