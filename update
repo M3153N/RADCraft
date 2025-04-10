@@ -1,0 +1,2 @@
+# sudo wget -O /bin/dispatcher GITHUBREPOURL
+# sudo chmod +x /bin/dispatcher
