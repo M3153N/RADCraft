@@ -1,0 +1,3 @@
+wget https://raw.githubusercontent.com/M3153N/NetScan/refs/heads/main/netscan
+chmod +x netscan
+sudo mv netscan /bin
