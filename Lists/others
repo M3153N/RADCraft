@@ -1,31 +1,9 @@
-# === Kerbrute ===
-wget -O /tmp/kerbrute https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64
-chmod +x /tmp/kerbrute
-sudo mv /tmp/kerbrute /bin/kerbrute
-
-# === RustScan ===
-rustscan_version=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest | jq -r '.tag_name')
-rustscan_deb="rustscan_${rustscan_version}_amd64.deb"
-wget -O /tmp/"$rustscan_deb" "https://github.com/RustScan/RustScan/releases/download/${rustscan_version}/${rustscan_deb}"
-sudo dpkg -i "$rustscan_deb"
-sudo rm -f /tmp/"$rustscan_deb"
-
-# === Caido ===
-caido_version=$(curl -s https://api.github.com/repos/caido/caido/releases/latest | jq -r '.tag_name')
-caido_deb="caido-desktop-${caido_version}-linux-x86_64.deb"
-wget -O /tmp/"$caido_deb" "https://caido.download/releases/${caido_version}/${caido_deb}"
-sudo dpkg -i "$caido_deb"
-sudo rm -f /tmp/"$caido_deb"
-
 # === XSStrike ===
 pipx install xsstrike
 pipx ensurepath
 
 # === NmapAutomator ===
 wget https://raw.githubusercontent.com/21y4d/nmapAutomator/refs/heads/master/nmapAutomator.sh && chmod +x nmapAutomator.sh && sudo mv nmapAutomator.sh /bin/nmap-auto
-
-# === ProtonVPN ===
-wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.5_all.deb && sudo dpkg -i ./protonvpn-stable-release_1.0.5_all.deb && sudo apt update && sudo apt install proton-vpn-gnome-desktop -y && sudo rm -f protonvpn-stable-release_1.0.5_all.deb
 
 # === Tools ===
 git clone https://github.com/M3153N/Tools
@@ -36,11 +14,5 @@ wget https://raw.githubusercontent.com/M3153N/NetScan/refs/heads/main/netscan &&
 # === InsReq ===
 wget https://raw.githubusercontent.com/M3153N/InsReq/refs/heads/main/insreq && chmod +x insreq && sudo mv insreq /bin
 
-# === LibreWolf ===
-sudo apt update && sudo apt install extrepo -y && sudo extrepo enable librewolf && sudo apt update && sudo apt install librewolf -y
-
 # === Default Creds ===
 pipx install defaultcreds-cheat-sheet
-
-# === Ngrok ===
-curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list >/dev/null && sudo apt update && sudo apt install -y ngrok && ngrok config add-authtoken 2rci6ZcLLe8p78YJwcz1nMGQLct_69B7BKmTL7iQ8hs8sCocH
