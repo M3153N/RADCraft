@@ -1,0 +1,5 @@
+caido_version=$(curl -s https://api.github.com/repos/caido/caido/releases/latest | jq -r '.tag_name')
+caido_deb="caido-desktop-${caido_version}-linux-x86_64.deb"
+wget -O /tmp/"$caido_deb" "https://caido.download/releases/${caido_version}/${caido_deb}"
+sudo dpkg -i "$caido_deb"
+sudo rm -f /tmp/"$caido_deb"
