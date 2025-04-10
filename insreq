@@ -1,3 +1,2 @@
-wget https://raw.githubusercontent.com/M3153N/InsReq/refs/heads/main/insreq
-chmod +x insreq
-sudo mv insreq /bin
+sudo wget -O /bin/insreq https://raw.githubusercontent.com/M3153N/InsReq/refs/heads/main/insreq
+sudo chmod +x /bin/insreq
