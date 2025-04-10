@@ -1,0 +1,3 @@
+wget -O /tmp/kerbrute https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64
+chmod +x /tmp/kerbrute
+sudo mv /tmp/kerbrute /bin/kerbrute
