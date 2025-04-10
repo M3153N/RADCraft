@@ -1,0 +1,5 @@
+rustscan_version=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest | jq -r '.tag_name')
+rustscan_deb="rustscan_${rustscan_version}_amd64.deb"
+wget -O /tmp/"$rustscan_deb" "https://github.com/RustScan/RustScan/releases/download/${rustscan_version}/${rustscan_deb}"
+sudo dpkg -i "$rustscan_deb"
+sudo rm -f /tmp/"$rustscan_deb"
