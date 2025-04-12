@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install ranger -y
 
 # === BatCat ===
-sudo apt install batcat -y
+sudo apt install bat -y
 echo 'alias cat="batcat"' >> ~/.zshrc
 
 # === BTop ===
@@ -81,13 +81,13 @@ xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/category-icon-size --t
 xfce4-panel -r
 
 # === Start Menu Icon ===
-wget -O /usr/share/icons/B4.png https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png
+sudo wget -O /usr/share/icons/B4.png https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/B4.png
 xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon --create -t string -s "/usr/share/icons/B4.png"
 xfce4-panel --restart
 
 # === Wallpaper ===
 wget -O ~/.config/BASE4Sec.png https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/BASE4Sec.png
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "~/.config/BASE4Sec.png"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "$HOME/.config/BASE4Sec.png"
 
 # === GRUB BackGround ===
 sudo wget -O /usr/share/grub/themes/Kali https://raw.githubusercontent.com/M3153N/resources/refs/heads/main/grub-4x3.png
