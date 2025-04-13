@@ -26,7 +26,7 @@ sudo apt install -y php
 sudo apt install -y whatweb
 sudo apt install -y tcpdump
 sudo apt install -y bloodhound
-sudo apt install -y freerdp2-x11
+sudo apt install -y freerdp3-x11
 sudo apt install -y smbclient
 sudo apt install -y wpscan
 sudo apt install -y evil-winrm
